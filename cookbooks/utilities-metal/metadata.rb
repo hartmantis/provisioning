@@ -4,6 +4,6 @@ name             'utilities-metal'
 maintainer       'Jonathan Hartman'
 maintainer_email 'j@p4nt5.com'
 license          'All rights reserved'
-description      'Installs/Configures utilities-metal'
-long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
+description      'Installs/configures utilities-metal'
+long_description 'Installs/configures utilities-metal'
 version          '0.1.0'

@@ -19,5 +19,6 @@
 #
 
 machine 'test1.p4nt5.com' do
-  recipe 'apt'
+#  recipe 'apt'
+  action :create
 end

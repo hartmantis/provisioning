@@ -27,3 +27,8 @@ with_fog_provisioner(
   digitalocean_client_id: ENV['DIGITALOCEAN_CLIENT_ID'],
   digitalocean_api_key: ENV['DIGITALOCEAN_API_KEY']
 )
+
+fog_key_pair 'personal-dsa' do
+  public_key_path File.expand_path('~/.ssh/id_dsa.pub')
+  private_key_path File.expand_path('~/.ssh/id_dsa')
+end
