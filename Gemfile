@@ -2,4 +2,5 @@
 
 source 'https://rubygems.org'
 
-gem 'chef-metal'
+gem 'chef-metal', github: 'opscode/chef-metal'
+gem 'fog'
