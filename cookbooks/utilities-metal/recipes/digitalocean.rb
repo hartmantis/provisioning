@@ -28,7 +28,7 @@ with_fog_provisioner(
   digitalocean_api_key: ENV['DIGITALOCEAN_API_KEY']
 )
 
-fog_key_pair 'testkey' do
-  public_key_path '/tmp/testkey.pub'
-  private_key_path '/tmp/testkey'
+fog_key_pair 'personal-rsa' do
+  public_key_path File.expand_path('~/.ssh/id_rsa.pub')
+  private_key_path File.expand_path('~/.ssh/id_rsa')
 end
