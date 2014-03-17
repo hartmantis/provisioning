@@ -18,7 +18,14 @@
 # limitations under the License.
 #
 
+with_provisioner_options(
+  'bootstrap_options' => {
+    image_name: 'Ubuntu 13.10 x64',
+    flavor_name: '512MB',
+    region_name: 'nyc2'
+  }
+)
+
 machine 'test1.p4nt5.com' do
-#  recipe 'apt'
   action :create
 end
