@@ -22,7 +22,7 @@ with_provisioner_options(
   'bootstrap_options' => {
     image_name: 'Ubuntu 13.10 x64',
     flavor_name: '512MB',
-    region_name: 'nyc2'
+    region_name: 'New York 2'
   }
 )
 
