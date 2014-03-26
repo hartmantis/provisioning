@@ -28,5 +28,4 @@ with_provisioner_options(
 
 machine 'test1.p4nt5.com' do
   recipe 'docker'
-  action :create
 end
