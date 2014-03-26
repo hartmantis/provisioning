@@ -7,3 +7,5 @@ license          'All rights reserved'
 description      'Installs/configures utilities-metal'
 long_description 'Installs/configures utilities-metal'
 version          '0.1.0'
+
+depends          'docker'
