@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/opscode/chef-metal.git
-  revision: 531a94129dbb6714854cdb8dc60f9d030a60ee62
+  revision: 1d3b855a258ec1d486b4f9cb34d98b7b240de8c2
   specs:
     chef-metal (0.3.1)
       chef
