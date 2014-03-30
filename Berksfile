@@ -2,4 +2,4 @@
 
 source 'https://api.berkshelf.com'
 
-metadata
+cookbook 'utilities', path: File.expand_path('cookbooks/utilities')
