@@ -28,4 +28,20 @@ with_provisioner_options(
 
 machine 'test1.p4nt5.com' do
   recipe 'docker'
+  notifies :create, 'ruby_block[update_dns]'
+end
+
+ruby_block 'update_dns' do
+  block do
+    require 'ipaddr'
+    require 'namecheap'
+    require 'net/http'
+
+    Namecheap.configure do |c|
+      c.username = ENV['NAMECHEAP_USER']
+      c.api_key = ENV['NAMECHEAP_API_KEY']
+      create.client_ip = IPAddr.new(Net::HTTP.get('icanhazip.com', '/').strip)
+    end
+  end
+  action :nothing
 end

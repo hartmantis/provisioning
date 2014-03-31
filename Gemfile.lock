@@ -1,8 +1,15 @@
 GIT
-  remote: git://github.com/opscode/chef-metal.git
-  revision: 1d3b855a258ec1d486b4f9cb34d98b7b240de8c2
+  remote: git://github.com/jameswritescode/namecheap-ruby.git
+  revision: f07ad59ea7a1a7aacb5a4f4ae84ee7c96eb3e77f
   specs:
-    chef-metal (0.3.1)
+    namecheap-ruby (0.0.1)
+      httparty
+
+GIT
+  remote: git://github.com/opscode/chef-metal.git
+  revision: af8746722475e3554ec7fecafce05ce9d29c52bd
+  specs:
+    chef-metal (0.4)
       chef
       cheffish
       inifile (~> 2.0)
@@ -87,6 +94,9 @@ GEM
     formatador (0.2.4)
     hashie (2.0.5)
     highline (1.6.21)
+    httparty (0.13.0)
+      json (~> 1.8)
+      multi_xml (>= 0.5.2)
     inifile (2.0.2)
     ipaddress (0.8.0)
     json (1.8.1)
@@ -102,6 +112,7 @@ GEM
     mixlib-shellout (1.3.0)
     moneta (0.6.0)
     multi_json (1.9.2)
+    multi_xml (0.5.5)
     multipart-post (1.2.0)
     net-http-persistent (2.9.4)
     net-scp (1.1.2)
@@ -172,3 +183,4 @@ DEPENDENCIES
   berkshelf (~> 3.0.0.beta)
   chef-metal!
   fog (< 1.21)
+  namecheap-ruby!
