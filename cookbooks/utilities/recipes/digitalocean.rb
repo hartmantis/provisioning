@@ -20,6 +20,7 @@
 # limitations under the License.
 #
 
+require 'chef_metal'
 require 'chef_metal/fog'
 
 with_fog_provisioner(

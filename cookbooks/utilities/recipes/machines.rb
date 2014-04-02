@@ -18,6 +18,8 @@
 # limitations under the License.
 #
 
+require 'chef_metal'
+
 with_provisioner_options(
   'bootstrap_options' => {
     image_name: 'Ubuntu 13.10 x64',
@@ -37,11 +39,13 @@ ruby_block 'update_dns' do
     require 'namecheap'
     require 'net/http'
 
-    Namecheap.configure do |c|
-      c.username = ENV['NAMECHEAP_USER']
-      c.api_key = ENV['NAMECHEAP_API_KEY']
-      create.client_ip = IPAddr.new(Net::HTTP.get('icanhazip.com', '/').strip)
-    end
+    Namecheap.configure(
+      user: ENV['NAMECHEAP_USER'],
+      api_key: ENV['NAMECHEAP_API_KEY'],
+      ip: IPAddr.new(Net::HTTP.get('icanhazip.com', '/').strip)
+    )
+
+    Chef::Log.warn(Namecheap::Domain.get_list)
   end
   action :nothing
 end
