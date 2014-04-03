@@ -30,6 +30,7 @@ with_provisioner_options(
 
 machine 'test1.p4nt5.com' do
   recipe 'docker'
+  Chef::Log.warn(attributes)
   notifies :create, 'ruby_block[update_dns]'
 end
 
@@ -46,6 +47,8 @@ ruby_block 'update_dns' do
     )
 
     Chef::Log.warn(Namecheap::Domain.get_list)
+    # TODO: Domain order in namecheap-ruby is reversed
+    Chef::Log.warn(Namecheap::DNS.get_hosts('com.p4nt5'))
   end
   action :nothing
 end
