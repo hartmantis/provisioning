@@ -29,8 +29,13 @@ with_provisioner_options(
 )
 
 machine 'test1.p4nt5.com' do
+  normal_attributes(
+    datadog: {api_key: ENV['DD_API_KEY']}
+  )
+  recipe 'datadog::dd-agent'
+  recipe 'datadog::dd-handler'
+  recipe 'datadog::dogstatsd-ruby'
   recipe 'docker'
-  Chef::Log.warn(attributes)
   notifies :create, 'ruby_block[update_dns]'
 end
 

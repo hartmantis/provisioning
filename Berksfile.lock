@@ -1,4 +1,5 @@
 DEPENDENCIES
+  datadog
   docker
 
 GRAPH
@@ -8,6 +9,10 @@ GRAPH
     modules (>= 0.0.0)
   build-essential (2.0.0)
   chef_handler (1.1.5)
+  datadog (1.2.0)
+    apt (>= 0.0.0)
+    chef_handler (~> 1.1.0)
+    yum (>= 0.0.0)
   device-mapper (0.1.0)
     apt (>= 0.0.0)
     modules (>= 0.0.0)

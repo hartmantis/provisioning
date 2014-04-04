@@ -15,4 +15,6 @@ To Do
 -----
 * Set up DNS for every machine
     * Is there a Namecheap gem that's not abandoned?
-* Set up Datadog on every machine
+* Add some shortcut rake tasks
+    * berks vendor
+    * chef-client -o utilities::...
