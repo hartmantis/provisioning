@@ -7,10 +7,12 @@ GIT
 
 GIT
   remote: git://github.com/opscode/chef-metal.git
-  revision: 4492bf9c667a14f9e2615e102ff16aa400eeb2a9
+  revision: cceb7df4e8d91ea755b8f0e374906cda06adf282
   specs:
-    chef-metal (0.4)
+    chef-metal (0.6)
       chef
+      chef-metal-fog
+      chef-metal-vagrant
       cheffish
       inifile (~> 2.0)
       net-scp (~> 1.0)
@@ -68,6 +70,11 @@ GEM
       puma (~> 1.6)
       rest-client (>= 1.0.4, < 1.7.0)
       yajl-ruby (~> 1.1)
+    chef-metal-fog (0.1)
+      chef
+      fog
+    chef-metal-vagrant (0.1)
+      chef
     chef-zero (1.7.3)
       hashie (~> 2.0)
       json
