@@ -191,5 +191,6 @@ PLATFORMS
 DEPENDENCIES
   berkshelf (~> 3.0.0.beta)
   chef-metal!
+  chef-metal-fog
   fog (< 1.21)
   namecheap-ruby!
