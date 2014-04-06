@@ -21,7 +21,7 @@
 #
 
 require 'chef_metal'
-require 'chef_metal/fog'
+require 'chef_metal_fog'
 
 with_fog_provisioner(
   provider: 'DigitalOcean',
