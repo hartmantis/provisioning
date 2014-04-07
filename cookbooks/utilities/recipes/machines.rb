@@ -45,6 +45,9 @@ ruby_block 'update_dns' do
     require 'namecheap'
     require 'net/http'
 
+    results = search(:node, 'name:test1.p4nt5.com')
+    Chef::Log.warn(results[0]['ipaddress'])
+
     Namecheap.configure(
       user: ENV['NAMECHEAP_USER'],
       api_key: ENV['NAMECHEAP_API_KEY'],
