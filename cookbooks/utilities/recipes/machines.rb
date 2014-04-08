@@ -45,18 +45,14 @@ ruby_block 'update_dns' do
     require 'namecheap'
     require 'net/http'
 
-    results = search(:node, 'name:test1.p4nt5.com')
-    Chef::Log.warn(results[0]['ipaddress'])
+    ip = search(:node, 'name:test1.p4nt5.com')[0]['ipaddress']
+    Chef::Log.info("Creating DNS entry for test1.p4nt5.com => #{ip}")
 
     Namecheap.configure(
       user: ENV['NAMECHEAP_USER'],
       api_key: ENV['NAMECHEAP_API_KEY'],
       ip: IPAddr.new(Net::HTTP.get('icanhazip.com', '/').strip)
     )
-
-    Chef::Log.warn(Namecheap::Domain.get_list)
-    # TODO: Domain order in namecheap-ruby is reversed
-    Chef::Log.warn(Namecheap::DNS.get_hosts('com.p4nt5'))
   end
   action :nothing
 end
