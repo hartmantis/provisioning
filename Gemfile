@@ -3,8 +3,7 @@
 source 'https://rubygems.org'
 
 gem 'chef-metal', github: 'opscode/chef-metal'
-# TODO: Pull Fog driver from GitHub once the repo is public
-gem 'chef-metal-fog'
+gem 'chef-metal-fog', github: 'opscode/chef-metal-fog'
 # TODO: 3.0.0.beta9 introduces dep_selector/gecode compile errors
 gem 'berkshelf', '= 3.0.0.beta8'
 gem 'fog'

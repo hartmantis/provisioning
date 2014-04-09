@@ -6,10 +6,18 @@ GIT
       httparty
 
 GIT
-  remote: git://github.com/opscode/chef-metal.git
-  revision: 1a493ee45f5a5cba13b7691f13239baef63b82ff
+  remote: git://github.com/opscode/chef-metal-fog.git
+  revision: 33084203645dde8e79471c6f6cab6a538e662079
   specs:
-    chef-metal (0.7)
+    chef-metal-fog (0.1)
+      chef
+      fog
+
+GIT
+  remote: git://github.com/opscode/chef-metal.git
+  revision: edb30e97fb4f3fa329c1ae34d0e2e8bac36bbcb2
+  specs:
+    chef-metal (0.8)
       chef
       chef-metal-fog
       chef-metal-vagrant
@@ -51,8 +59,8 @@ GEM
     celluloid-io (0.16.0.pre)
       celluloid (>= 0.16.0.pre)
       nio4r (>= 1.0.0)
-    chef (11.10.4)
-      chef-zero (~> 1.7, >= 1.7.2)
+    chef (11.12.0)
+      chef-zero (~> 2.0, >= 2.0.2)
       diff-lcs (~> 1.2, >= 1.2.4)
       erubis (~> 2.7)
       highline (~> 1.6, >= 1.6.9)
@@ -62,24 +70,19 @@ GEM
       mixlib-cli (~> 1.4)
       mixlib-config (~> 2.0)
       mixlib-log (~> 1.3)
-      mixlib-shellout (~> 1.3)
+      mixlib-shellout (~> 1.4)
       net-ssh (~> 2.6)
       net-ssh-multi (~> 1.1)
-      ohai (~> 6.0)
+      ohai (~> 7.0)
       pry (~> 0.9)
-      puma (~> 1.6)
       rest-client (>= 1.0.4, < 1.7.0)
       yajl-ruby (~> 1.1)
-    chef-metal-fog (0.1)
-      chef
-      fog
     chef-metal-vagrant (0.1)
       chef
-    chef-zero (1.7.3)
+    chef-zero (2.0.2)
       hashie (~> 2.0)
       json
       mixlib-log (~> 1.3)
-      moneta (< 0.7.0)
       rack
     cheffish (0.2)
       chef
@@ -110,7 +113,7 @@ GEM
     hashie (2.1.0)
     highline (1.6.21)
     hitimes (1.2.1)
-    httparty (0.13.0)
+    httparty (0.13.1)
       json (~> 1.8)
       multi_xml (>= 0.5.2)
     inifile (2.0.2)
@@ -125,8 +128,7 @@ GEM
     mixlib-cli (1.4.0)
     mixlib-config (2.1.0)
     mixlib-log (1.6.0)
-    mixlib-shellout (1.3.0)
-    moneta (0.6.0)
+    mixlib-shellout (1.4.0)
     multi_json (1.9.2)
     multi_xml (0.5.5)
     multipart-post (2.0.0)
@@ -144,20 +146,19 @@ GEM
       mini_portile (~> 0.5.0)
     octokit (2.7.2)
       sawyer (~> 0.5.2)
-    ohai (6.20.0)
+    ohai (7.0.0)
       ipaddress
+      mime-types (~> 1.16)
       mixlib-cli
-      mixlib-config
+      mixlib-config (~> 2.0)
       mixlib-log
-      mixlib-shellout
+      mixlib-shellout (~> 1.2)
       systemu (~> 2.5.2)
       yajl-ruby
     pry (0.9.12.6)
       coderay (~> 1.0)
       method_source (~> 0.8)
       slop (~> 3.4)
-    puma (1.6.3)
-      rack (~> 1.2)
     rack (1.5.2)
     rest-client (1.6.7)
       mime-types (>= 1.16)
@@ -200,6 +201,6 @@ PLATFORMS
 DEPENDENCIES
   berkshelf (= 3.0.0.beta8)
   chef-metal!
-  chef-metal-fog
+  chef-metal-fog!
   fog
   namecheap-ruby!
