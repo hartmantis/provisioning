@@ -7,20 +7,20 @@ GIT
 
 GIT
   remote: git://github.com/opscode/chef-metal-fog.git
-  revision: 33084203645dde8e79471c6f6cab6a538e662079
+  revision: 7cac5e272a8375e7d377c89e6487c69d25ff0e49
   specs:
-    chef-metal-fog (0.1)
+    chef-metal-fog (0.2)
       chef
       fog
 
 GIT
   remote: git://github.com/opscode/chef-metal.git
-  revision: 4b0eb4390a960481fe6909087149511c3835b90a
+  revision: 1005ad4ae9603b23b9c6fb22d7baa332a8f49e28
   specs:
-    chef-metal (0.8.2)
+    chef-metal (0.9)
       chef
-      chef-metal-fog
-      chef-metal-vagrant
+      chef-metal-fog (~> 0.2)
+      chef-metal-vagrant (~> 0.2)
       cheffish
       inifile (~> 2.0)
       net-scp (~> 1.0)
@@ -77,14 +77,14 @@ GEM
       pry (~> 0.9)
       rest-client (>= 1.0.4, < 1.7.0)
       yajl-ruby (~> 1.1)
-    chef-metal-vagrant (0.1)
+    chef-metal-vagrant (0.2)
       chef
     chef-zero (2.0.2)
       hashie (~> 2.0)
       json
       mixlib-log (~> 1.3)
       rack
-    cheffish (0.2)
+    cheffish (0.2.1)
       chef
     coderay (1.1.0)
     diff-lcs (1.2.5)
@@ -133,7 +133,7 @@ GEM
     multi_xml (0.5.5)
     multipart-post (2.0.0)
     net-http-persistent (2.9.4)
-    net-scp (1.1.2)
+    net-scp (1.2.0)
       net-ssh (>= 2.6.5)
     net-ssh (2.8.0)
     net-ssh-gateway (1.2.0)
