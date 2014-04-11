@@ -8,4 +8,8 @@ gem 'chef-metal-fog', github: 'opscode/chef-metal-fog'
 gem 'berkshelf', '= 3.0.0.beta8'
 gem 'fog'
 # Version in RubyGems is an empty stub
-gem 'namecheap-ruby', github: 'jameswritescode/namecheap-ruby'
+#gem 'namecheap-ruby', github: 'jameswritescode/namecheap-ruby'
+# TODO: Use fixed fork until changes are merged
+gem 'namecheap-ruby',
+  github: 'RoboticCheese/namecheap-ruby',
+  branch: 'jdh-return-hash-from-format-hosts'

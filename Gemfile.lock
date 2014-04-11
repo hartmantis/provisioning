@@ -1,6 +1,7 @@
 GIT
-  remote: git://github.com/jameswritescode/namecheap-ruby.git
-  revision: f07ad59ea7a1a7aacb5a4f4ae84ee7c96eb3e77f
+  remote: git://github.com/RoboticCheese/namecheap-ruby.git
+  revision: 95465c56761b3531eac5acdaac467a84fa9702a6
+  branch: jdh-return-hash-from-format-hosts
   specs:
     namecheap-ruby (0.0.1)
       httparty
