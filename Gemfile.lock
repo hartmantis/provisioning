@@ -15,9 +15,9 @@ GIT
 
 GIT
   remote: git://github.com/opscode/chef-metal.git
-  revision: edb30e97fb4f3fa329c1ae34d0e2e8bac36bbcb2
+  revision: 4b0eb4390a960481fe6909087149511c3835b90a
   specs:
-    chef-metal (0.8)
+    chef-metal (0.8.2)
       chef
       chef-metal-fog
       chef-metal-vagrant
@@ -59,7 +59,7 @@ GEM
     celluloid-io (0.16.0.pre)
       celluloid (>= 0.16.0.pre)
       nio4r (>= 1.0.0)
-    chef (11.12.0)
+    chef (11.12.2)
       chef-zero (~> 2.0, >= 2.0.2)
       diff-lcs (~> 1.2, >= 1.2.4)
       erubis (~> 2.7)
@@ -97,7 +97,7 @@ GEM
       fog-core (~> 1.21, >= 1.21.1)
       fog-json
       nokogiri (~> 1.5, >= 1.5.11)
-    fog-brightbox (0.0.1)
+    fog-brightbox (0.0.2)
       fog-core
       fog-json
     fog-core (1.21.1)
@@ -146,7 +146,7 @@ GEM
       mini_portile (~> 0.5.0)
     octokit (2.7.2)
       sawyer (~> 0.5.2)
-    ohai (7.0.0)
+    ohai (7.0.2)
       ipaddress
       mime-types (~> 1.16)
       mixlib-cli
