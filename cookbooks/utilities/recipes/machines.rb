@@ -86,13 +86,12 @@ ruby_block 'update_dns' do
     host_ip = search(:node, 'name:test1.p4nt5.com')[0]['ipaddress']
     Chef::Log.info("Creating DNS entry for test1.p4nt5.com => #{ip}")
     new_host = {
-      hostname: 'test1.p4nt5.com',
+      hostname: 'test1',
       type: 'A',
       address: host_ip
     }
     hosts.delete_if do |h|
-      h['hostname'] == new_host['hostname'] && \
-        h['address'] != new_host['address']
+      h[:hostname] == new_host[:hostname]
     end
     hosts << new_host
     Chef::Log.debug("New host records for p4nt5.com: #{hosts}")
