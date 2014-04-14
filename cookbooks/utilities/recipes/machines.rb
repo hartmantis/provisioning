@@ -46,7 +46,7 @@ end
 
 # Make sure we have access to Namecheap at compile time
 require 'ipaddr'
-require 'namcheap'
+require 'namecheap'
 require 'net/http'
 
 Namecheap.configure(
