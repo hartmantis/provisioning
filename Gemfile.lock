@@ -8,7 +8,7 @@ GIT
 
 GIT
   remote: git://github.com/opscode/chef-metal-fog.git
-  revision: 315c2eae65cb214c894d8cb1fac3d4bc0de6e744
+  revision: 1c1a110788321411165e24f755aa5004ca580bd4
   specs:
     chef-metal-fog (0.3.1)
       chef
@@ -89,12 +89,12 @@ GEM
       chef
     coderay (1.1.0)
     dep-selector-libgecode (1.0.0)
-    dep_selector (1.0.0)
+    dep_selector (1.0.1)
       dep-selector-libgecode (~> 1.0)
       ffi (~> 1.9)
     diff-lcs (1.2.5)
     erubis (2.7.0)
-    excon (0.32.1)
+    excon (0.33.0)
     faraday (0.9.0)
       multipart-post (>= 1.2, < 3)
     ffi (1.9.3)
