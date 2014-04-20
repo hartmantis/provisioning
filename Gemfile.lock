@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/opscode/chef-metal-fog.git
-  revision: 1c1a110788321411165e24f755aa5004ca580bd4
+  revision: f01737d7c20c9b28a0e99588c2f53a3651cc3a4c
   specs:
     chef-metal-fog (0.3.1)
       chef
@@ -8,7 +8,7 @@ GIT
 
 GIT
   remote: git://github.com/opscode/chef-metal.git
-  revision: bcecb9d86523d309a7968623345833a3b96ed274
+  revision: 60f8e64a36fe3ca8663b9c47ce6732fa413450ef
   specs:
     chef-metal (0.9.3)
       chef
@@ -23,7 +23,7 @@ GEM
   remote: https://rubygems.org/
   specs:
     addressable (2.3.6)
-    berkshelf (3.0.1)
+    berkshelf (3.1.0)
       addressable (~> 2.3.4)
       berkshelf-api-client (~> 1.2)
       buff-config (~> 0.2)
@@ -33,7 +33,7 @@ GEM
       celluloid-io (~> 0.16.0.pre)
       faraday (~> 0.9.0)
       minitar (~> 0.5.4)
-      octokit (~> 2.6)
+      octokit (~> 3.0)
       retryable (~> 1.3.3)
       ridley (~> 3.0)
       solve (~> 1.1)
@@ -83,7 +83,7 @@ GEM
       chef
     coderay (1.1.0)
     dep-selector-libgecode (1.0.0)
-    dep_selector (1.0.1)
+    dep_selector (1.0.2)
       dep-selector-libgecode (~> 1.0)
       ffi (~> 1.9)
     diff-lcs (1.2.5)
@@ -92,7 +92,7 @@ GEM
     faraday (0.9.0)
       multipart-post (>= 1.2, < 3)
     ffi (1.9.3)
-    fog (1.21.0)
+    fog (1.22.0)
       fog-brightbox
       fog-core (~> 1.21, >= 1.21.1)
       fog-json
@@ -100,10 +100,10 @@ GEM
     fog-brightbox (0.0.2)
       fog-core
       fog-json
-    fog-core (1.21.1)
+    fog-core (1.22.0)
       builder
-      excon (~> 0.32)
-      formatador (~> 0.2.0)
+      excon (~> 0.33)
+      formatador (~> 0.2)
       mime-types
       net-scp (~> 1.1)
       net-ssh (>= 2.1.3)
@@ -146,8 +146,8 @@ GEM
     nio4r (1.0.0)
     nokogiri (1.6.1)
       mini_portile (~> 0.5.0)
-    octokit (2.7.2)
-      sawyer (~> 0.5.2)
+    octokit (3.1.0)
+      sawyer (~> 0.5.3)
     ohai (7.0.2)
       ipaddress
       mime-types (~> 1.16)
@@ -187,7 +187,7 @@ GEM
       faraday (~> 0.8, < 0.10)
     semverse (1.1.0)
     slop (3.5.0)
-    solve (1.1.0)
+    solve (1.2.0)
       dep_selector (~> 1.0)
       semverse (~> 1.1)
     systemu (2.5.2)
