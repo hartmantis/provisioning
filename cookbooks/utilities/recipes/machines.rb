@@ -30,7 +30,7 @@ with_provisioner_options(
 
 machine 'test1.p4nt5.com' do
   normal_attributes(
-    datadog: {api_key: ENV['DD_API_KEY']}
+    datadog: { api_key: ENV['DD_API_KEY'] }
   )
   recipe 'datadog::dd-agent'
   recipe 'datadog::dd-handler'
@@ -84,7 +84,7 @@ ruby_block 'update_dns' do
     Chef::Log.debug("Original host records for p4nt5.com: #{hosts}")
 
     host_ip = search(:node, 'name:test1.p4nt5.com')[0]['ipaddress']
-    Chef::Log.info("Creating DNS entry for test1.p4nt5.com => #{ip}")
+    Chef::Log.info("Creating DNS entry for test1.p4nt5.com => #{host_ip}")
     new_host = {
       hostname: 'test1',
       type: 'A',
@@ -96,8 +96,7 @@ ruby_block 'update_dns' do
     hosts << new_host
     Chef::Log.debug("New host records for p4nt5.com: #{hosts}")
 
-    # TODO: Enable once sure this is working
-    # Namecheap::DNS.set_hosts('com.p4nt5', hosts)
+    Namecheap::DNS.set_hosts('com.p4nt5', hosts)
   end
   action :nothing
 end
