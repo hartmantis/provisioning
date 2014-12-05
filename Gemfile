@@ -2,8 +2,18 @@
 
 source 'https://rubygems.org'
 
-gem 'chef-metal', github: 'opscode/chef-metal'
-gem 'chef-metal-fog', github: 'opscode/chef-metal-fog'
-gem 'berkshelf'
-gem 'fog'
-gem 'namecheap-ruby'
+group :test do
+  gem 'rake'
+  gem 'cane'
+  gem 'countloc'
+  gem 'rubocop'
+  gem 'foodcritic'
+end
+
+group :production do
+  gem 'chef', '~> 12.0.0.rc'
+  gem 'chef-provisioning'
+  gem 'chef-provisioning-fog'
+  gem 'berkshelf'
+  gem 'namecheap-ruby'
+end

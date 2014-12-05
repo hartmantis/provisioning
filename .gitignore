@@ -2,3 +2,4 @@
 clients/
 nodes/
 berks-cookbooks/
+.chef

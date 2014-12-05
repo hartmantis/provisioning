@@ -1,6 +1,6 @@
 # Encoding: UTF-8
 #
-# Cookbook Name:: utilities-metal
+# Cookbook Name:: utilities
 # Recipe:: digitalocean
 #
 # Copyright 2014, Jonathan Hartman
@@ -20,14 +20,15 @@
 # limitations under the License.
 #
 
-require 'chef_metal'
-require 'chef_metal_fog'
+%w(DIGITALOCEAN_CLIENT_ID DIGITALOCEAN_API_KEY).each do |e|
+  fail("This recipe requires the `#{e}` environment variable") if ENV[e].nil?
+end
 
-with_fog_provisioner(
-  provider: 'DigitalOcean',
-  digitalocean_client_id: ENV['DIGITALOCEAN_CLIENT_ID'],
-  digitalocean_api_key: ENV['DIGITALOCEAN_API_KEY']
-)
+require 'chef/provisioning/fog_driver'
+
+with_driver 'fog:DigitalOcean',
+  compute_options: { digitalocean_client_id: ENV['DIGITALOCEAN_CLIENT_ID'],
+                     digitalocean_api_key: ENV['DIGITALOCEAN_API_KEY'] }
 
 fog_key_pair 'personal-rsa' do
   public_key_path File.expand_path('~/.ssh/id_rsa.pub')
