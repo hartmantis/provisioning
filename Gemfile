@@ -11,7 +11,7 @@ group :test do
 end
 
 group :production do
-  gem 'chef', '~> 12.0.0.rc'
+  gem 'chef', '~> 12.0'
   gem 'chef-provisioning'
   gem 'chef-provisioning-fog'
   gem 'berkshelf'
