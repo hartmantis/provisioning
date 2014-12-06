@@ -8,8 +8,7 @@ Usage
 Install all the dependencies with Berkshelf and run Chef:
 
     bundle exec berks vendor
-    bundle exec chef-client -c knife.rb -o \
-        utilities::digitalocean,utilities::machines
+    bundle exec chef-client -c knife.rb -o utilities::default
 
 To Do
 -----
