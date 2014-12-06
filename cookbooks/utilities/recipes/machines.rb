@@ -24,11 +24,6 @@ end
 
 require 'chef/provisioning'
 
-with_machine_options bootstrap_options: { key_name: 'personal-rsa',
-                                          image_name: '14.04 x64',
-                                          flavor_name: '512MB',
-                                          region_name: 'New York 3' }
-
 machine 'test1.p4nt5.com' do
   attributes(
     datadog: { api_key: ENV['DD_API_KEY'] }

@@ -1,7 +1,7 @@
 # Encoding: UTF-8
 #
 # Cookbook Name:: utilities
-# Recipe:: digitalocean
+# Recipe:: aws
 #
 # Copyright 2014, Jonathan Hartman
 #
@@ -20,15 +20,15 @@
 # limitations under the License.
 #
 
-%w(DIGITALOCEAN_CLIENT_ID DIGITALOCEAN_API_KEY).each do |e|
+%w(AWS_ACCOUNT_ID AWS_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY).each do |e|
   fail("This recipe requires the `#{e}` environment variable") if ENV[e].nil?
 end
 
 require 'chef/provisioning/fog_driver'
 
-with_driver 'fog:DigitalOcean',
-  compute_options: { digitalocean_client_id: ENV['DIGITALOCEAN_CLIENT_ID'],
-                     digitalocean_api_key: ENV['DIGITALOCEAN_API_KEY'] }
+with_driver "fog:AWS:#{ENV['AWS_ACCOUNT_ID']}:us-west-2",
+  compute_options: { aws_access_key_id: ENV['AWS_ACCESS_KEY_ID'],
+                     aws_secret_access_key: ENV['AWS_SECRET_ACCESS_KEY'] }
 
 fog_key_pair 'personal-rsa' do
   public_key_path File.expand_path('~/.ssh/id_rsa.pub')
@@ -36,6 +36,5 @@ fog_key_pair 'personal-rsa' do
 end
 
 with_machine_options bootstrap_options: { key_name: 'personal-rsa',
-                                          image_name: '14.04 x64',
-                                          flavor_name: '512MB',
-                                          region_name: 'New York 3'}
+                                          image_id: 'ami-37501207',
+                                          flavor_id: 't1.micro' }
