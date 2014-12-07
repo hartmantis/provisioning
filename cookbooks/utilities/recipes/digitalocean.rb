@@ -30,12 +30,11 @@ with_driver 'fog:DigitalOcean',
   compute_options: { digitalocean_client_id: ENV['DIGITALOCEAN_CLIENT_ID'],
                      digitalocean_api_key: ENV['DIGITALOCEAN_API_KEY'] }
 
-fog_key_pair 'personal-rsa' do
-  public_key_path File.expand_path('~/.ssh/id_rsa.pub')
-  private_key_path File.expand_path('~/.ssh/id_rsa')
-end
+fog_key_pair node['utilities']['ssh_key']
 
-with_machine_options bootstrap_options: { key_name: 'personal-rsa',
-                                          image_name: '14.04 x64',
-                                          flavor_name: '512MB',
-                                          region_name: 'New York 3'}
+with_machine_options bootstrap_options: {
+  key_name: node['utilities']['ssh_key'],
+  image_name: '14.04 x64',
+  flavor_name: '512MB',
+  region_name: 'New York 3'
+}

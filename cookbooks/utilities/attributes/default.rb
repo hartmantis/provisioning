@@ -19,3 +19,4 @@
 #
 
 default['utilities']['cloud_provider'] = 'digitalocean'
+default['utilities']['ssh_key'] = 'provisioning'

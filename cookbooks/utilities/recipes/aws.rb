@@ -30,11 +30,10 @@ with_driver "fog:AWS:#{ENV['AWS_ACCOUNT_ID']}:us-west-2",
   compute_options: { aws_access_key_id: ENV['AWS_ACCESS_KEY_ID'],
                      aws_secret_access_key: ENV['AWS_SECRET_ACCESS_KEY'] }
 
-fog_key_pair 'personal-rsa' do
-  public_key_path File.expand_path('~/.ssh/id_rsa.pub')
-  private_key_path File.expand_path('~/.ssh/id_rsa')
-end
+fog_key_pair node['utilities']['ssh_key']
 
-with_machine_options bootstrap_options: { key_name: 'personal-rsa',
-                                          image_id: 'ami-37501207',
-                                          flavor_id: 't1.micro' }
+with_machine_options bootstrap_options: {
+  key_name: node['utilities']['ssh_key'],
+  image_id: 'ami-37501207',
+  flavor_id: 't1.micro'
+}
