@@ -9,6 +9,9 @@ GEM
     ast (2.0.0)
     astrolabe (1.3.0)
       parser (>= 2.2.0.pre.3, < 3.0)
+    aws-sdk-v1 (1.59.1)
+      json (~> 1.4)
+      nokogiri (>= 1.4.4)
     berkshelf (3.2.1)
       addressable (~> 2.3.4)
       berkshelf-api-client (~> 1.2)
@@ -66,6 +69,10 @@ GEM
       net-ssh (~> 2.0)
       net-ssh-gateway (~> 1.2.0)
       winrm (~> 1.2.0)
+    chef-provisioning-aws (0.1.2)
+      aws-sdk-v1
+      chef
+      chef-provisioning (~> 0.9)
     chef-provisioning-fog (0.11)
       chef
       chef-provisioning (~> 0.15)
@@ -251,7 +258,7 @@ GEM
       nokogiri (>= 1.4.1)
       trollop
     retryable (1.3.6)
-    ridley (4.1.0)
+    ridley (4.1.1)
       addressable
       buff-config (~> 1.0)
       buff-extensions (~> 1.0)
@@ -325,6 +332,7 @@ DEPENDENCIES
   cane
   chef (~> 12.0)
   chef-provisioning
+  chef-provisioning-aws
   chef-provisioning-fog
   countloc
   foodcritic

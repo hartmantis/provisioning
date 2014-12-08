@@ -3,3 +3,4 @@ clients/
 nodes/
 berks-cookbooks/
 .chef
+.aws
