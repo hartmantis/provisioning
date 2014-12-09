@@ -1,6 +1,7 @@
 .env.sh
 clients/
 nodes/
+data_bags/
 berks-cookbooks/
 .chef
 .aws
