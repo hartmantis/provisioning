@@ -38,7 +38,6 @@ end
 file ENV['AWS_CONFIG_FILE'] do
   content <<-EOH.gsub(/^ +/, '')
     [default]
-    region=us-west-2
     aws_access_key_id=#{ENV['AWS_ACCESS_KEY_ID']}
     aws_secret_access_key=#{ENV['AWS_SECRET_ACCESS_KEY']}
   EOH
@@ -47,12 +46,10 @@ end
 
 with_driver 'aws'
 
-with_data_center 'us-west-2' do
-  aws_security_group 'ssh-from-anywhere' do
-    inbound_rules [
-      { protocol: :tcp, ports: [22], sources: %w(0.0.0.0/0) }
-    ]
-  end
+aws_security_group 'ssh-from-anywhere' do
+  inbound_rules [
+    { protocol: :tcp, ports: [22], sources: %w(0.0.0.0/0) }
+  ]
 end
 
 with_driver "fog:AWS:#{ENV['AWS_ACCOUNT_ID']}:us-west-2",
