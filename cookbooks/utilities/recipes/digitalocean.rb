@@ -20,21 +20,26 @@
 # limitations under the License.
 #
 
-%w(DIGITALOCEAN_CLIENT_ID DIGITALOCEAN_API_KEY).each do |e|
-  fail("This recipe requires the `#{e}` environment variable") if ENV[e].nil?
+%w(image_name flavor_name region_name client_id api_key).each do |a|
+  if node['utilities']['digitalocean'][a].nil?
+    fail('This recipe requires the ' <<
+         "`node['utilities']['digitalocean'][#{a}]` attribute")
+  end
 end
 
 require 'chef/provisioning/fog_driver'
 
 with_driver 'fog:DigitalOcean',
-  compute_options: { digitalocean_client_id: ENV['DIGITALOCEAN_CLIENT_ID'],
-                     digitalocean_api_key: ENV['DIGITALOCEAN_API_KEY'] }
+  compute_options: {
+    digitalocean_client_id: node['utilities']['digitalocean']['client_id'],
+    digitalocean_api_key: node['utilities']['digitalocean']['api_key']
+  }
 
 fog_key_pair node['utilities']['ssh_key']
 
 with_machine_options bootstrap_options: {
   key_name: node['utilities']['ssh_key'],
-  image_name: '14.04 x64',
-  flavor_name: '512MB',
-  region_name: 'New York 3'
+  image_name: node['utilities']['digitalocean']['image_name'],
+  flavor_name: node['utilities']['digitalocean']['flavor_name'],
+  region_name: node['utilities']['digitalocean']['region_name']
 }

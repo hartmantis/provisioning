@@ -20,10 +20,11 @@
 # limitations under the License.
 #
 
-%w(
-  AWS_CONFIG_FILE AWS_ACCOUNT_ID AWS_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY
-).each do |e|
-  fail("This recipe requires the `#{e}` environment variable") if ENV[e].nil?
+%w(config_file account_id access_key_id secret_access_key region).each do |a|
+  if node['utilities']['aws'][a].nil?
+    fail("This recipe requires the `node['utilities']['aws']['#{a}']` " <<
+         'attribute')
+  end
 end
 
 require 'chef/provisioning/aws_driver'
@@ -31,15 +32,15 @@ require 'chef/provisioning/fog_driver'
 
 # The AWS driver can currently only read credentials from a file and not
 # environment variables.
-directory ::File.dirname(ENV['AWS_CONFIG_FILE']) do
+directory ::File.dirname(node['utilities']['aws']['config_file']) do
   recursive true
 end
 
-file ENV['AWS_CONFIG_FILE'] do
+file node['utilities']['aws']['config_file'] do
   content <<-EOH.gsub(/^ +/, '')
     [default]
-    aws_access_key_id=#{ENV['AWS_ACCESS_KEY_ID']}
-    aws_secret_access_key=#{ENV['AWS_SECRET_ACCESS_KEY']}
+    aws_access_key_id=#{node['utilities']['aws']['access_key_id']}
+    aws_secret_access_key=#{node['utilities']['aws']['secret_access_key']}
   EOH
   sensitive true
 end
@@ -52,15 +53,18 @@ aws_security_group 'ssh-from-anywhere' do
   ]
 end
 
-with_driver "fog:AWS:#{ENV['AWS_ACCOUNT_ID']}:us-west-2",
-  compute_options: { aws_access_key_id: ENV['AWS_ACCESS_KEY_ID'],
-                     aws_secret_access_key: ENV['AWS_SECRET_ACCESS_KEY'] }
+region = node['utilities']['aws']['region']
+with_driver "fog:AWS:#{node['utilities']['aws']['account_id']}:#{region}",
+  compute_options: {
+    aws_access_key_id: node['utilities']['aws']['access_key_id'],
+    aws_secret_access_key: node['utilities']['aws']['secret_access_key']
+  }
 
 fog_key_pair node['utilities']['ssh_key']
 
 with_machine_options bootstrap_options: {
   groups: %w(default ssh-from-anywhere),
   key_name: node['utilities']['ssh_key'],
-  image_id: 'ami-37501207',
-  flavor_id: 't1.micro'
+  image_id: node['utilities']['aws']['image_id'],
+  flavor_id: node['utilities']['aws']['flavor_id']
 }
